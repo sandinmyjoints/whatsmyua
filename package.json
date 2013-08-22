@@ -1,0 +1,23 @@
+{
+  "name": "whatuaamiusing",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.3.5",
+    "jade": "0.34.1",
+    "ua-parser": "0.3.3"
+  },
+  "description": "What user-agent am I using?",
+  "main": "app.js",
+  "devDependencies": {},
+  "keywords": [
+    "user-agent",
+    "testing",
+    "ua"
+  ],
+  "author": "William Bert",
+  "license": "BSD"
+}

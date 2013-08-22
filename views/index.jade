@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  h2 user agent
+  ul
+    li raw:  #{ua.rawUa}
+    li string: #{ua.string}
+    li family: #{ua.family}
+    li major:  #{ua.major}
+    li minor:  #{ua.minor}
+    li patch:  #{ua.ppatch}
+    li device: #{ua.device}
+    li isMobile: #{ua.isMobile}
+
+  h2 os
+  ul
+    li string: #{os.string}
+    li family: #{os.family}
+    li major: #{os.major}
+    li minor: #{os.minor}
+    li patch: #{os.patch}
