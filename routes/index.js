@@ -1,14 +1,22 @@
-
 /*
  * GET home page.
  */
 var uaParser = require('ua-parser');
 var packagejson = require("../package.json");
 
+var post = function(req, res) {
+    res.locals.ua = req.body["custom-ua-string"] || req.headers['user-agent'];
+    return _route(req, res);
+};
 
-exports.index = function(req, res) {
-  var ua     = uaParser.parse(req.headers['user-agent']);
-  var rawUa  = req.headers['user-agent'];
+var get = function(req, res) {
+    res.locals.ua = req.headers['user-agent'];
+    return _route(req, res);
+};
+
+var _route = function(req, res) {
+  var ua     = uaParser.parse(res.locals.ua);
+  var rawUa  = res.locals.ua;
   var data   = {
       title: 'What\'s my user agent?',
       meta: {
@@ -36,3 +44,9 @@ exports.index = function(req, res) {
 
   res.render('index', data);
 };
+
+module.exports = {
+    get: get,
+    post: post
+};
+

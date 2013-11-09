@@ -6,6 +6,11 @@ block content
     a(href="https://github.com/tobie/ua-parser") ua-parser
     |  #{meta.version}.
 
+  form(action="/", method="post")
+    label(for="custom-ua-string") Enter a ua string:
+    input(name="custom-ua-string", id="custom-ua-string", value="#{ua.rawUa}", size=80)
+    button(type="submit") Go!
+
   h2 user agent
   ul
     li raw:  #{ua.rawUa}

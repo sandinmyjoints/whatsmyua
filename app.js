@@ -39,7 +39,8 @@ if ('development' == app.get('env')) {
 }
 
 // Routing.
-app.get('/', routes.index);
+app.get('/', routes.get);
+app.post('/', routes.post);
 
 // Server.
 http.createServer(app).listen(app.get('port'), app.get('ip'), function(){
