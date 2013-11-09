@@ -3,12 +3,17 @@
  * GET home page.
  */
 var uaParser = require('ua-parser');
+var package = require("../package.json");
+
 
 exports.index = function(req, res) {
   var ua     = uaParser.parse(req.headers['user-agent']);
   var rawUa  = req.headers['user-agent'];
   var data   = {
       title: 'What\'s my user agent?',
+      meta: {
+          "version": package.dependencies["ua-parser"]
+      },
       ua: {
           rawUa: rawUa,
           string: ua.ua.toString(),
