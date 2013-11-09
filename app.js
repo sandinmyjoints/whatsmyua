@@ -30,6 +30,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 
+console.log("process.env", process.env);
+console.log("binding to " + app.get('ip') + ":" + app.get('port'));
 http.createServer(app).listen(app.get('port'), app.get('ip'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
