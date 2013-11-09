@@ -1,12 +1,12 @@
-* TODO memoize
-* TODO json
-
-* TODO custom domain
+* DONE custom domain
+  CLOSED: [2013-11-09 Sat 15:27]
   - whatsmyua.info
-* TODO db with various versions of ua-parser
-
-* TODO UI to select ua-parser version
-
+* DONE say the current version
+  CLOSED: [2013-11-09 Sat 15:36]
 * TODO UI to enter a particular user agent string and ua-parser results
-
-* TODO b
+* TODO db with various versions of ua-parser
+* TODO UI to select ua-parser version
+* TODO prod vs dev environments
+* TODO memoize
+* TODO json api
+* TODO speed it up
