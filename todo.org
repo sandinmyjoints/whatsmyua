@@ -3,10 +3,14 @@
   - whatsmyua.info
 * DONE say the current version
   CLOSED: [2013-11-09 Sat 15:36]
+* DONE ga
+  CLOSED: [2013-11-09 Sat 15:51]
+* DONE set env  
+  CLOSED: [2013-11-09 Sat 15:51]
+* TODO behavior in prod vs dev environments
 * TODO UI to enter a particular user agent string and ua-parser results
 * TODO db with various versions of ua-parser
 * TODO UI to select ua-parser version
-* TODO prod vs dev environments
 * TODO memoize
 * TODO json api
 * TODO speed it up
