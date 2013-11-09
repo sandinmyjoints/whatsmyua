@@ -26,7 +26,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(express.favicon());
+app.use(express.favicon(path.join(__dirname, 'public/img/favicon.ico')));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -42,8 +42,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 
 // Server.
-console.log("binding to: " + app.get('ip') + ":" + app.get('port'));
 http.createServer(app).listen(app.get('port'), app.get('ip'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+  console.log('Express server listening on ' + app.get('ip') + ":" + app.get('port'));
   console.log("env: " + app.get('env'));
 });
