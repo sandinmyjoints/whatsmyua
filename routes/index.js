@@ -3,7 +3,7 @@
  * GET home page.
  */
 var uaParser = require('ua-parser');
-var package = require("../package.json");
+var packagejson = require("../package.json");
 
 
 exports.index = function(req, res) {
@@ -12,7 +12,8 @@ exports.index = function(req, res) {
   var data   = {
       title: 'What\'s my user agent?',
       meta: {
-          "version": package.dependencies["ua-parser"]
+          version: packagejson.dependencies["ua-parser"],
+          env: res.locals.env
       },
       ua: {
           rawUa: rawUa,
