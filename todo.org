@@ -1,2 +1,12 @@
 * TODO memoize
 * TODO json
+
+* TODO custom domain
+  - whatsmyua.info
+* TODO db with various versions of ua-parser
+
+* TODO UI to select ua-parser version
+
+* TODO UI to enter a particular user agent string and ua-parser results
+
+* TODO b
