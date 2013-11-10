@@ -10,7 +10,5 @@ Running live at **[whatsmyua.info](http://www.whatsmyua.info).**
 
 Parameters:
 
-* <ua-string> defaults to user agent string. Be sure to url-encode it.
-* <ua-parser-version> defaults to "latest". (coming soon)
-
-
+* `ua-string`: Be sure to url-encode it. Defaults to your request's user agent string.
+* `ua-parser-version`: Coming soon. Defaults to "latest".
