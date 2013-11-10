@@ -9,9 +9,13 @@
   CLOSED: [2013-11-09 Sat 15:51]
 * DONE UI to enter a particular user agent string and ua-parser results
   CLOSED: [2013-11-09 Sat 16:47]
+* DONE link back to gh repo
+  CLOSED: [2013-11-10 Sun 17:21]
+* DONE json api
+  CLOSED: [2013-11-10 Sun 17:43]
+* TODO memoize, cache template
 * TODO behavior in prod vs dev environments
 * TODO db with various versions of ua-parser
 * TODO UI to select ua-parser version
-* TODO memoize
-* TODO json api
+* TODO request timing
 * TODO speed it up
