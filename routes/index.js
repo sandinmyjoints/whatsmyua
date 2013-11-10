@@ -6,21 +6,27 @@ var packagejson = require("../package.json");
 
 var post = function(req, res) {
     res.locals.ua = req.body["custom-ua-string"] || req.headers['user-agent'];
-    return _route(req, res);
+    return _parseUa(req, res);
 };
 
 var get = function(req, res) {
     res.locals.ua = req.headers['user-agent'];
-    return _route(req, res);
+    return _parseUa(req, res);
 };
 
-var _route = function(req, res) {
-  var ua     = uaParser.parse(res.locals.ua);
+var _parseUa = function(req, res) {
+  // Add version.
+  res.locals.uaVersion = packagejson.dependencies["ua-parser"];
+
+  // Locals.
+  var version = res.locals.uaVersion;
+
   var rawUa  = res.locals.ua;
-  var data   = {
+  var ua     = uaParser.parse(rawUa);
+  var context   = {
       title: 'What\'s my user agent?',
       meta: {
-          version: packagejson.dependencies["ua-parser"],
+          version: res.locals.uaVersion,
           env: res.locals.env
       },
       ua: {
