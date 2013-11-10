@@ -14,11 +14,12 @@ var app = express();
 // Set environment.
 if(process.env.OPENSHIFT_NODEJS_IP) app.set('env', 'production');
 
-// all environments
+// Settings.
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000);
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+app.disable('x-powered-by');
 
 // Middleware.
 app.use(function(req, res, next) {
@@ -32,6 +33,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use(express.compress());
 app.use(express.favicon(path.join(__dirname, 'public/img/favicon.ico')));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
