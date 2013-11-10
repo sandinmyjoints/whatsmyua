@@ -42,6 +42,8 @@ var _route = function(req, res) {
       }
   };
 
+  res.locals.timing.end = Date.now();
+  console.log("duration: ", res.locals.timing.end - res.locals.timing.start);
   res.render('index', data);
 };
 
