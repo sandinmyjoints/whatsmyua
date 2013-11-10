@@ -26,8 +26,7 @@ var _parseUa = function(req, res, next) {
           major: ua.major,
           minor: ua.minor,
           patch: ua.patch,
-          device: ua.device,
-          isMobile: /mobile/i.test(rawUa)
+          device: ua.device
       },
       os: {
           string: ua.os.toString(),

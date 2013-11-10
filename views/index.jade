@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  p According to 
+  p According to
     a(href="https://github.com/tobie/ua-parser") ua-parser
     |  #{meta.version}.
 
@@ -11,21 +11,28 @@ block content
     input(name="custom-ua-string", id="custom-ua-string", value="#{ua.rawUa}", size=80)
     button(type="submit") Go!
 
-  h2 user agent
-  ul
-    li raw:  #{ua.rawUa}
-    li string: #{ua.string}
-    li family: #{ua.family}
-    li major:  #{ua.major}
-    li minor:  #{ua.minor}
-    li patch:  #{ua.ppatch}
-    li device: #{ua.device}
-    li isMobile: #{ua.isMobile}
+  :markdown
+    ## user agent
+      * raw:  #{ua.rawUa}
+      * string: #{ua.string}
+      * family: #{ua.family}
+      * major:  #{ua.major}
+      * minor:  #{ua.minor}
+      * patch:  #{ua.patch}
+      * device: #{ua.device}
 
-  h2 os
-  ul
-    li string: #{os.string}
-    li family: #{os.family}
-    li major: #{os.major}
-    li minor: #{os.minor}
-    li patch: #{os.patch}
+    ## os
+      * string: #{os.string}
+      * family: #{os.family}
+      * major: #{os.major}
+      * minor: #{os.minor}
+      * patch: #{os.patch}
+
+    ## API
+
+    `GET /api/v1?ua=<ua-string>&version=<ua-parser-version>`
+
+    Parameters:
+
+    * `ua-string`: Be sure to url-encode it. Defaults to your request's user agent string.
+    * `ua-parser-version`: Coming soon. Defaults to "latest".

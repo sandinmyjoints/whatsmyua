@@ -8,7 +8,8 @@
   "dependencies": {
     "express": "3.3.5",
     "jade": "0.34.1",
-    "ua-parser": "0.3.3"
+    "ua-parser": "0.3.3",
+    "marked": "~0.2.10"
   },
   "description": "What user-agent am I using?",
   "main": "app.js",
