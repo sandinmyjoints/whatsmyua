@@ -16,8 +16,9 @@ var _parseUa = function(req, res, next) {
   var ua     = uaParser.parse(rawUa);
   var parsed   = {
       meta: {
-          version: res.locals.uaVersion,
-          env: res.locals.env
+          name: "ua-parser",
+          repo: "https://github.com/tobie/ua-parser",
+          version: res.locals.uaVersion
       },
       ua: {
           rawUa: rawUa,
@@ -38,6 +39,12 @@ var _parseUa = function(req, res, next) {
   };
 
   res.locals.parsed = parsed;
+
+  res.locals.uaParserJsMeta = {
+      name: "ua-parser-js",
+      repo: "https://github.com/faisalman/ua-parser-js",
+      version: ""
+  };
 
   return next(req, res);
 };
