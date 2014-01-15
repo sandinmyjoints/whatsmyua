@@ -2,50 +2,27 @@ extends layout
 
 mixin li(name, val)
   if val
-    li(id="##{name}") #{name}: #{val}
+    li(id="#{name}") #{name}: #{val}
   else
-    li(id="##{name}") #{name}:
+    li(id="#{name}") #{name}:
 
-mixin parser(meta, ua, os)
-  .parser(id="##{meta.name}")
+mixin result(type, data)
+  h2= type
+  ul
+    if data
+      each val, key in data
+        mixin li(key, val)
+
+mixin parser(meta, ua, os, device)
+  .parser(id="#{meta.name}")
     p According to&nbsp;
       a(href="#{meta.repo}") #{meta.name}
       |  #{meta.version}.
 
     .parser-results
-       h2 user agent
-       ul
-         if ua
-           mixin li("raw", ua.rawUa)
-           mixin li("string", ua.string)
-           mixin li("family", ua.family)
-           mixin li("major", ua.major)
-           mixin li("minor", ua.minor)
-           mixin li("patch", ua.patch)
-           mixin li("device", ua.device)
-         else
-           mixin li("raw")
-           mixin li("string")
-           mixin li("family")
-           mixin li("major")
-           mixin li("minor")
-           mixin li("patch")
-           mixin li("device")
-
-       h2 os
-       ul
-         if os
-           mixin li("string", os.string)
-           mixin li("family", os.family)
-           mixin li("major", os.major)
-           mixin li("minor", os.minor)
-           mixin li("patch", os.patch)
-         else
-           mixin li("string")
-           mixin li("family")
-           mixin li("major")
-           mixin li("minor")
-           mixin li("patch")
+      mixin result("ua", ua)
+      mixin result("os", os)
+      mixin result("device", device)
 
 block content
   .top
@@ -55,8 +32,8 @@ block content
       input(name="custom-ua-string", id="custom-ua-string", value="#{ua.rawUa}", size=80)
       button(type="submit") Go!
 
-  mixin parser(meta, parsed.ua, parsed.os)
-  mixin parser(uaParserJsMeta, null, null)
+  mixin parser(meta, parsed.ua, parsed.os, {device: parsed.ua.device})
+  mixin parser(uaParserJsMeta, null, null, null)
 
   .api
     :markdown

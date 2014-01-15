@@ -24,6 +24,8 @@ html.no-js
     block footer
 
   script(src="/js/ua-parser-js/src/ua-parser.min.js")
+  script.
+    var rawUa = "#{ua.rawUa}";
   script(src="/js/app.js")
 
   if env == "production"
