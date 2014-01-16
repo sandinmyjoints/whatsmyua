@@ -13,16 +13,17 @@ mixin result(type, data)
       each val, key in data
         mixin li(key, val)
 
-mixin parser(meta, ua, os, device)
-  .parser(id="#{meta.name}")
+mixin parser(payload)
+  .parser(id="#{payload.meta.name}")
     p According to&nbsp;
-      a(href="#{meta.repo}") #{meta.name}
-      |  #{meta.version}.
+      a(href="#{payload.meta.repo}") #{payload.meta.name}
+      |  #{payload.meta.version}.
 
     .parser-results
-      mixin result("ua", ua)
-      mixin result("os", os)
-      mixin result("device", device)
+      if payload
+        each val, key in payload
+          if key != "meta"
+            mixin result(key, val)
 
 block content
   .top
@@ -32,8 +33,8 @@ block content
       input(name="custom-ua-string", id="custom-ua-string", value="#{ua.rawUa}", size=80)
       button(type="submit") Go!
 
-  mixin parser(meta, parsed.ua, parsed.os, {device: parsed.ua.device})
-  mixin parser(uaParserJsMeta, null, null, null)
+  mixin parser(parsed)
+  mixin parser(uaParserJsMeta)
 
   .api
     :markdown

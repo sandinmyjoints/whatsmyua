@@ -4,6 +4,7 @@
 var uaParser = require('ua-parser');
 var packagejson = require("../package.json");
 
+
 // Helpers.
 var _parseUa = function(req, res, next) {
   // Add version.
@@ -14,7 +15,9 @@ var _parseUa = function(req, res, next) {
 
   var rawUa  = res.locals.ua;
   var ua     = uaParser.parse(rawUa);
-  var parsed   = {
+
+  // Add ua-parser.
+  res.locals.parsed   = {
       meta: {
           name: "ua-parser",
           repo: "https://github.com/tobie/ua-parser",
@@ -22,7 +25,7 @@ var _parseUa = function(req, res, next) {
       },
       ua: {
           rawUa: rawUa,
-          string: ua.ua.toString(),
+          string: ua.ua,  // TODO
           family: ua.family,
           major: ua.major,
           minor: ua.minor,
@@ -30,7 +33,7 @@ var _parseUa = function(req, res, next) {
           device: ua.device
       },
       os: {
-          string: ua.os.toString(),
+          string: ua.os,  // TODO
           family: ua.os.family,
           major: ua.os.major,
           minor: ua.os.minor,
@@ -38,25 +41,23 @@ var _parseUa = function(req, res, next) {
       }
   };
 
-  res.locals.parsed = parsed;
-
+  // Add ua-parser-js.
   res.locals.uaParserJsMeta = {
+    meta: {
       name: "ua-parser-js",
       repo: "https://github.com/faisalman/ua-parser-js",
       version: ""
+    }
   };
 
   return next(req, res);
 };
 
 var _render = function(req, res) {
-
-  var context = res.locals.parsed;
-  context.title = 'What\'s my user agent?';
-
+  res.locals.title = 'What\'s my user agent?';
   res.locals.timing.end = Date.now();
   console.log("duration: ", res.locals.timing.end - res.locals.timing.start);
-  return res.render('index', context);
+  return res.render('index');
 };
 
 var _api = function(req, res) {

@@ -1,40 +1,48 @@
 (function () {
   try {
     var parser = new UAParser();
-    parser.setUA(rawUa);
+    parser.setUA(WMUArawUa);
     var parsedUa   = parser.getResult();
 
     var userOs     = parsedUa.os.name + " " + parsedUa.os.version;
     var userAgent  = parsedUa.browser.name + " " + parsedUa.browser.version;
     var userDevice = parsedUa.device.type;
-    console.log("got", userOs, userAgent, userDevice);
 
     var elParser = document.getElementById("ua-parser-js");
-    var elUl  = elParser.getElementsByTagName("ul");
-    var mapping = {
-        ua:  elUl[0],
-        os:  elUl[1],
-        browser: null,
-        engine: null,
-        cpu: null,
-        device: elUl[2]
-    };
 
-    var keys = Object.keys(mapping);
-    for(var i = 0; i < keys.length; i++) {
-        var key = keys[i];
-        var el = mapping[key];
-        var val = parsedUa[key];
+    var topKeys = Object.keys(parsedUa);
+    for(var i = 0; i < topKeys.length; i++) {
+      var name = topKeys[i];
+      var elH2 = document.createElement("h2");
+      elH2.innerText = name;
+      elParser.appendChild(elH2);
+      var elUl  = document.createElement("ul");
+      elParser.appendChild(elUl);
+
+      var thisThing = parsedUa[name];
+      if(typeof thisThing === "string") {
         var elLi = document.createElement("li");
-        console.log("adding " + key + ": " + val);
-        if(typeof val === "string") {
-            elLi.innerText = "raw" + key + ": " + val;
-        }
-        else {
-            elLi.innerText = key + ": " + val;
-        }
+        elLi.innerText = "rawUa:" + thisThing;
+        elUl.appendChild(elLi);
+      }
+      else {
+        var innerKeys = Object.keys(thisThing);
+        for(var j = 0; j < innerKeys.length; j++)
+        {
+          var key = innerKeys[j];
+          var val = thisThing[key];
 
-        if(el) el.appendChild(elLi);
+          var elLi = document.createElement("li");
+          if(typeof val === "string") {
+            elLi.innerText = "raw" + key + ": " + val;
+          }
+          else {
+            elLi.innerText = key + ": " + val;
+          }
+
+          elUl.appendChild(elLi);
+        }
+      }
     }
 
   } catch(ex) {
