@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "server": "nodemon app.js"
   },
   "dependencies": {
     "express": "3.3.5",
@@ -13,7 +14,9 @@
   },
   "description": "What user-agent am I using?",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "~1.0.8"
+  },
   "keywords": [
     "user-agent",
     "testing",
