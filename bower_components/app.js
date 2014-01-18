@@ -14,7 +14,7 @@
     for(var i = 0; i < topKeys.length; i++) {
       var name = topKeys[i];
       var elH2 = document.createElement("h2");
-      elH2.innerText = name;
+      elH2.innerHTML = name;
       elParser.appendChild(elH2);
       var elUl  = document.createElement("ul");
       elParser.appendChild(elUl);
@@ -22,7 +22,7 @@
       var thisThing = parsedUa[name];
       if(typeof thisThing === "string") {
         var elLi = document.createElement("li");
-        elLi.innerText = "rawUa:" + thisThing;
+        elLi.innerHTML = name + ": " + thisThing;
         elUl.appendChild(elLi);
       }
       else {
@@ -33,18 +33,11 @@
           var val = thisThing[key];
 
           var elLi = document.createElement("li");
-          if(typeof val === "string") {
-            elLi.innerText = "raw" + key + ": " + val;
-          }
-          else {
-            elLi.innerText = key + ": " + val;
-          }
-
+          elLi.innerHTML = key + ": " + val;
           elUl.appendChild(elLi);
         }
       }
     }
-
   } catch(ex) {
     console.log("caught", ex);
   }
