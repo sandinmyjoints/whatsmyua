@@ -14,11 +14,12 @@ mixin result(type, data)
         mixin li(key, val)
 
 mixin parser(payload)
-  .parser(id="#{payload.meta.name}")
-    p According to&nbsp;
+  .parser.block(id="#{payload.meta.name}")
+    h2 According to&nbsp;
       a(href="#{payload.meta.repo}") #{payload.meta.name}
-      |  #{payload.meta.version}.
+      | :
 
+    //-p (version #{payload.meta.version})
     .parser-results
       if payload
         each val, key in payload
@@ -26,17 +27,18 @@ mixin parser(payload)
             mixin result(key, val)
 
 block content
-  .top
+  .top.block
     h1= title
+    p See what your user-agent detection library really thinks!
     form(action="/", method="post")
-      label(for="custom-ua-string") Enter a ua string:
-      input(name="custom-ua-string", id="custom-ua-string", value="#{ua.rawUa}", size=80)
+      label(for="custom-ua-string") Enter a user-agent string:
+      input(name="custom-ua-string", id="custom-ua-string", value="#{ua}")
       button(type="submit") Go!
 
   mixin parser(parsed)
   mixin parser(uaParserJsMeta)
 
-  .api
+  .api.block
     :markdown
       ## API
 

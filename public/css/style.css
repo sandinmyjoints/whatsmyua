@@ -1,8 +1,32 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:rgba(17,102,153, 0.3);
+  background-image: linear-gradient(white 2px, transparent 2px),
+  linear-gradient(90deg, white 2px, transparent 2px),
+  linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+  background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
 }
 
 a {
   color: #00B7FF;
+}
+
+.content {
+  margin: auto;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.block {
+  background-color:rgba(255, 255, 255, 0.6);
+  padding: 1em;
+  margin: 1em;
+  outline: .1em solid rgba(17,102,153, 0.3);
+}
+
+input {
+  width: 100%;
 }
