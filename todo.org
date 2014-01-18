@@ -5,7 +5,7 @@
   CLOSED: [2013-11-09 Sat 15:36]
 * DONE ga
   CLOSED: [2013-11-09 Sat 15:51]
-* DONE set env  
+* DONE set env
   CLOSED: [2013-11-09 Sat 15:51]
 * DONE UI to enter a particular user agent string and ua-parser results
   CLOSED: [2013-11-09 Sat 16:47]
@@ -13,6 +13,8 @@
   CLOSED: [2013-11-10 Sun 17:21]
 * DONE json api
   CLOSED: [2013-11-10 Sun 17:43]
+* DONE add ua-parser-js
+  CLOSED: [2014-01-18 Sat 11:05]
 * TODO memoize, cache template
 * TODO behavior in prod vs dev environments
 * TODO db with various versions of ua-parser
