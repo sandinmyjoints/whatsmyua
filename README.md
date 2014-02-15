@@ -3,16 +3,15 @@
 ## What does your ua lib *really* think?
 
 * [ua-parser](https://github.com/tobie/ua-parser)
-* [ua-parser-js]("https://github.com/faisalman/ua-parser-js")
+* [ua-parser-js](https://github.com/faisalman/ua-parser-js)
 * [platform.js](https://github.com/bestiejs/platform.js/)
 
 Running live at **[whatsmyua.info](http://www.whatsmyua.info)**.
 
 ## API
 
-`GET /api/v1?ua=<ua-string>&version=<ua-parser-version>`
+`GET /api/v1/ua?ua=<ua-string>`
 
-Parameters:
+Parameters (optional):
 
 * `ua-string`: Be sure to url-encode it. Defaults to your request's user agent string.
-* `ua-parser-version`: Coming soon. Defaults to "latest".
