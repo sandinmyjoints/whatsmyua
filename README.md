@@ -1,8 +1,11 @@
 # What's my user agent (ua)?
 
-What does [ua-parser](https://github.com/tobie/ua-parser) say my user agent is?
+## What does your ua lib *really* think?
 
-Running live at **[whatsmyua.info](http://www.whatsmyua.info).**
+* [ua-parser](https://github.com/tobie/ua-parser)
+* [ua-parser-js]("https://github.com/faisalman/ua-parser-js")
+
+Running live at **[whatsmyua.info](http://www.whatsmyua.info)**.
 
 ## API
 
