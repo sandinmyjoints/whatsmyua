@@ -14,10 +14,11 @@ var _parseUa = function(req, res, next) {
 
   // Locals.
   var rawUa  = res.locals.ua;
+  var parsedData = [];
 
   // Add ua-parser.
   var ua     = uaParser.parse(rawUa);
-  res.locals.uaParserData   = {
+  parsedData.push({
       meta: {
           name: "ua-parser",
           repo: "https://github.com/tobie/ua-parser",
@@ -39,20 +40,20 @@ var _parseUa = function(req, res, next) {
           minor: ua.os.minor,
           patch: ua.os.patch
       }
-  };
+  });
 
   // Add ua-parser-js.
-  res.locals.uaParserJsMeta = {
+  parsedData.push({
     meta: {
       name: "ua-parser-js",
       repo: "https://github.com/faisalman/ua-parser-js",
       version: ""
     }
-  };
+  });
 
   // Add platform.js.
   var platform = platformjs.parse(rawUa);
-  res.locals.platformData = {
+  parsedData.push({
     meta: {
       name: "platform.js",
       repo: "https://github.com/bestiejs/platform.js/",
@@ -71,7 +72,9 @@ var _parseUa = function(req, res, next) {
       manufacturer: platform.manufacturer,
       description: platform.description
     }
-  };
+  });
+
+  res.locals.parsedData = parsedData;
 
   return next(req, res);
 };
@@ -86,7 +89,7 @@ var _render = function(req, res) {
 var _api = function(req, res) {
   res.locals.timing.end = Date.now();
   console.log("duration: ", res.locals.timing.end - res.locals.timing.start);
-  return res.jsonp(res.locals.uaParserData);
+  return res.jsonp(res.locals.parsedData);
 };
 
 // Methods.
