@@ -21,3 +21,5 @@
 * TODO UI to select ua-parser version
 * TODO request timing
 * TODO speed it up
+* TODO ua-parser-js runs on server
+* TODO format of platform.js data
