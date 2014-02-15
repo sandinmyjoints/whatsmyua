@@ -4,6 +4,7 @@
 
 * [ua-parser](https://github.com/tobie/ua-parser)
 * [ua-parser-js]("https://github.com/faisalman/ua-parser-js")
+* [platform.js](https://github.com/bestiejs/platform.js/)
 
 Running live at **[whatsmyua.info](http://www.whatsmyua.info)**.
 

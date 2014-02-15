@@ -2,26 +2,26 @@
  * GET home page.
  */
 var uaParser = require('ua-parser');
+var platformjs = require("platform");
 var packagejson = require("../package.json");
 
 
 // Helpers.
 var _parseUa = function(req, res, next) {
   // Add version.
-  res.locals.uaVersion = packagejson.dependencies["ua-parser"];
+  var uaParserVersion = packagejson.dependencies["ua-parser"];
+  var platformVersion = packagejson.dependencies["platform"];
 
   // Locals.
-  var version = res.locals.uaVersion;
-
   var rawUa  = res.locals.ua;
-  var ua     = uaParser.parse(rawUa);
 
   // Add ua-parser.
-  res.locals.parsed   = {
+  var ua     = uaParser.parse(rawUa);
+  res.locals.uaParserData   = {
       meta: {
           name: "ua-parser",
           repo: "https://github.com/tobie/ua-parser",
-          version: res.locals.uaVersion
+          version: uaParserVersion
       },
       ua: {
           rawUa: rawUa,
@@ -50,6 +50,29 @@ var _parseUa = function(req, res, next) {
     }
   };
 
+  // Add platform.js.
+  var platform = platformjs.parse(rawUa);
+  res.locals.platformData = {
+    meta: {
+      name: "platform.js",
+      repo: "https://github.com/bestiejs/platform.js/",
+      version: platformVersion
+    },
+    ua: {
+      name: platform.name,
+      version: platform.version,
+      layout: platform.layout
+    },
+    os: {
+      os: platform.os
+    },
+    device: {
+      product: platform.product,
+      manufacturer: platform.manufacturer,
+      description: platform.description
+    }
+  };
+
   return next(req, res);
 };
 
@@ -63,7 +86,7 @@ var _render = function(req, res) {
 var _api = function(req, res) {
   res.locals.timing.end = Date.now();
   console.log("duration: ", res.locals.timing.end - res.locals.timing.start);
-  return res.jsonp(res.locals.parsed);
+  return res.jsonp(res.locals.uaParserData);
 };
 
 // Methods.

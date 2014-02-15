@@ -35,8 +35,9 @@ block content
       input(name="custom-ua-string", id="custom-ua-string", value="#{ua}")
       button(type="submit") Go!
 
-  mixin parser(parsed)
+  mixin parser(uaParserData)
   mixin parser(uaParserJsMeta)
+  mixin parser(platformData)
 
   .api.block
     :markdown

@@ -10,12 +10,13 @@
     "express": "3.3.5",
     "jade": "0.34.1",
     "ua-parser": "git://github.com/tobie/ua-parser.git#08be5be0e0e860d5eb4f948b679de2a089f21595",
-    "marked": "~0.2.10"
+    "marked": "=0.2.10",
+    "platform": "=1.0.0"
   },
   "description": "What user-agent am I using?",
   "main": "app.js",
   "devDependencies": {
-    "nodemon": "~1.0.8"
+    "nodemon": "=1.0.8"
   },
   "keywords": [
     "user-agent",
