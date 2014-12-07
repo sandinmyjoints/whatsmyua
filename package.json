@@ -11,7 +11,7 @@
     "jade": "0.34.1",
     "ua-parser": "git://github.com/tobie/ua-parser.git#6025683a5779283da50bb4c62575c64e41e478cf",
     "marked": "=0.2.10",
-    "platform": "=1.0.0"
+    "platform": "=1.3.0"
   },
   "description": "What user-agent am I using?",
   "main": "app.js",
