@@ -1,3 +1,4 @@
+var UAParser = require('ua-parser-js');
 (function () {
   try {
     var parser = new UAParser();
