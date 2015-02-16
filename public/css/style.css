@@ -27,6 +27,13 @@ a {
   outline: .1em solid rgba(17,102,153, 0.3);
 }
 
-input {
+.input {
   width: 100%;
+  font-size: 13px;
+  padding: 4px;
+  margin: 4px 0;
+  box-sizing: border-box;
+}
+input.go {
+  font-size: 16px;
 }
