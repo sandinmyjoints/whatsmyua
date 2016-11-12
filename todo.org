@@ -15,11 +15,33 @@
   CLOSED: [2013-11-10 Sun 17:43]
 * DONE add ua-parser-js
   CLOSED: [2014-01-18 Sat 11:05]
-* TODO memoize, cache template
 * TODO behavior in prod vs dev environments
 * TODO db with various versions of ua-parser
 * TODO UI to select ua-parser version
 * TODO request timing
 * TODO speed it up
+** TODO caching
+** TODO memoize, cache template
 * TODO ua-parser-js runs on server
 * TODO format of platform.js data
+* TODO promote
+  -
+#+BEGIN_SRC
+See ua-parser in action
+-----------------------
+
+[whatsmyua.info](http://www.whatsmyua.info) shows what ua-parser reports for
+your current user agent/OS/device, or for any arbitrary user agent string.
+#+END_SRC
+
+#+BEGIN_SRC
+See platform.js in action
+-----------------------
+
+[whatsmyua.info](http://www.whatsmyua.info) shows what platform.js reports for
+your current user agent/OS/device, or for any arbitrary user agent string.
+
+#+END_SRC
+  - [ ] ua-parser
+  - [ ] ua-parser-js
+  - [ ] platform.js
