@@ -20,27 +20,27 @@ var _parseUa = function(req, res, next) {
   // Add ua-parser.
   var ua     = useragent.parse(rawUa);
   parsedData.push({
-      meta: {
-          name: "useragent",
-          repo: "https://github.com/3rd-Eden/useragent",
-          version: useragentVersion
-      },
-      ua: {
-          rawUa: rawUa,
-          string: ua.ua,  // TODO
-          family: ua.family,
-          major: ua.major,
-          minor: ua.minor,
-          patch: ua.patch,
-          device: ua.device
-      },
-      os: {
-          string: ua.os,  // TODO
-          family: ua.os.family,
-          major: ua.os.major,
-          minor: ua.os.minor,
-          patch: ua.os.patch
-      }
+    meta: {
+      name: "useragent",
+      repo: "https://github.com/3rd-Eden/useragent",
+      version: useragentVersion
+    },
+    ua: {
+      rawUa: rawUa,
+      string: ua.ua,  // TODO
+      family: ua.family,
+      major: ua.major,
+      minor: ua.minor,
+      patch: ua.patch,
+      device: ua.device
+    },
+    os: {
+      string: ua.os,  // TODO
+      family: ua.os.family,
+      major: ua.os.major,
+      minor: ua.os.minor,
+      patch: ua.os.patch
+    }
   });
 
   // Add ua-parser-js.
@@ -95,18 +95,18 @@ var _api = function(req, res) {
 
 // Methods.
 var post = function(req, res) {
-    res.locals.ua = req.body["custom-ua-string"] || req.headers['user-agent'];
-    return _parseUa(req, res, _render);
+  res.locals.ua = req.body["custom-ua-string"] || req.headers['user-agent'];
+  return _parseUa(req, res, _render);
 };
 
 var get = function(req, res) {
-    res.locals.ua = req.headers['user-agent'];
-    return _parseUa(res, res, _render);
+  res.locals.ua = req.headers['user-agent'];
+  return _parseUa(res, res, _render);
 };
 
 var apiGet = function(req, res) {
-    res.locals.ua = req.param("ua") || req.headers['user-agent'];
-    return _parseUa(req, res, _api);
+  res.locals.ua = req.param("ua") || req.headers['user-agent'];
+  return _parseUa(req, res, _api);
 };
 
 module.exports = {

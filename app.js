@@ -23,14 +23,14 @@ app.disable('x-powered-by');
 
 // Middleware.
 app.use(function(req, res, next) {
-    res.locals.timing = {};
-    res.locals.timing.start = Date.now();
-    next();
+  res.locals.timing = {};
+  res.locals.timing.start = Date.now();
+  next();
 });
 
 app.use(function(req, res, next) {
-    res.locals.env = app.get('env');
-    next();
+  res.locals.env = app.get('env');
+  next();
 });
 
 app.use(express.compress());
