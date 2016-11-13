@@ -31,7 +31,7 @@ block content
     p See what your user-agent detection library really thinks!
     form(action="/", method="post")
       label(for="custom-ua-string") Enter a user-agent string:
-        textarea.input(name="custom-ua-string", id="custom-ua-string")
+        textarea.input(name="custom-ua-string", id="custom-ua-string", autofocus)
           = ua
       input.go(type="submit", value="Go!")
 
