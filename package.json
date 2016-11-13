@@ -13,8 +13,8 @@
     "jade": "0.34.1",
     "marked": "=0.2.10",
     "platform": "1.3.3",
-    "ua-parser": "0.3.5",
-    "ua-parser-js": "0.7.11"
+    "ua-parser-js": "0.7.11",
+    "useragent": "2.1.9"
   },
   "description": "What user-agent am I using?",
   "main": "app.js",

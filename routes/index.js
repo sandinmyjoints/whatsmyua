@@ -1,7 +1,7 @@
 /*
  * GET home page.
  */
-var uaParser = require('ua-parser');
+var useragent = require('useragent');
 var platformjs = require("platform");
 var packagejson = require("../package.json");
 
@@ -9,7 +9,7 @@ var packagejson = require("../package.json");
 // Helpers.
 var _parseUa = function(req, res, next) {
   // Add version.
-  var uaParserVersion = packagejson.dependencies["ua-parser"];
+  var useragentVersion = packagejson.dependencies["useragent"];
   var platformVersion = packagejson.dependencies["platform"];
   var uaParserJsVersion = packagejson.dependencies["ua-parser-js"];
 
@@ -18,12 +18,12 @@ var _parseUa = function(req, res, next) {
   var parsedData = [];
 
   // Add ua-parser.
-  var ua     = uaParser.parse(rawUa);
+  var ua     = useragent.parse(rawUa);
   parsedData.push({
       meta: {
-          name: "ua-parser",
-          repo: "https://github.com/tobie/ua-parser",
-          version: uaParserVersion
+          name: "useragent",
+          repo: "https://github.com/3rd-Eden/useragent",
+          version: useragentVersion
       },
       ua: {
           rawUa: rawUa,
