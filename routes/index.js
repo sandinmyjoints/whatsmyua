@@ -11,6 +11,7 @@ var _parseUa = function(req, res, next) {
   // Add version.
   var uaParserVersion = packagejson.dependencies["ua-parser"];
   var platformVersion = packagejson.dependencies["platform"];
+  var uaParserJsVersion = packagejson.dependencies["ua-parser-js"];
 
   // Locals.
   var rawUa  = res.locals.ua;
@@ -47,7 +48,7 @@ var _parseUa = function(req, res, next) {
     meta: {
       name: "ua-parser-js",
       repo: "https://github.com/faisalman/ua-parser-js",
-      version: ""
+      version: uaParserJsVersion
     }
   });
 

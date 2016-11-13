@@ -17,9 +17,8 @@ mixin parser(payload)
   .parser.block(id="#{payload.meta.name}")
     h2 According to&nbsp;
       a(href="#{payload.meta.repo}") #{payload.meta.name}
-      | :
+      |&nbsp;v#{payload.meta.version}:
 
-    //-p (version #{payload.meta.version})
     .parser-results
       if payload
         each val, key in payload
