@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+var cors = require('cors')
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
@@ -49,7 +50,8 @@ if ('development' == app.get('env')) {
 // Routing.
 app.get('/', routes.site.get);
 app.post('/', routes.site.post);
-app.get('/api/v1/ua', routes.api.get);
+
+app.get('/api/v1/ua', cors(), routes.api.get);
 
 // Server.
 http.createServer(app).listen(app.get('port'), app.get('ip'), function(){
