@@ -13,11 +13,11 @@ var path = require('path');
 var app = express();
 
 // Set environment.
-if(process.env.OPENSHIFT_NODEJS_IP) app.set('env', 'production');
+if(process.env.DOKKU_APP_NAME) app.set('env', 'production');
 
 // Settings.
-app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000);
-app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+app.set('port', process.env.PORT || 5000);
+app.set('ip', process.env.IP || '0.0.0.0');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.disable('x-powered-by');
