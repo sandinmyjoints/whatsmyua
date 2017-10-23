@@ -83,13 +83,11 @@ var _parseUa = function(req, res, next) {
 var _render = function(req, res) {
   res.locals.title = 'What\'s my user agent?';
   res.locals.timing.end = Date.now();
-  console.log("duration: ", res.locals.timing.end - res.locals.timing.start);
   return res.render('index');
 };
 
 var _api = function(req, res) {
   res.locals.timing.end = Date.now();
-  console.log("duration: ", res.locals.timing.end - res.locals.timing.start);
   return res.jsonp(res.locals.parsedData);
 };
 
