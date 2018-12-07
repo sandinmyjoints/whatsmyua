@@ -8,6 +8,7 @@ var cors = require('cors')
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
+const expressGa = require('express-ga-middleware');
 
 
 var app = express();
@@ -46,12 +47,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+var gaMiddle = expressGa('UA-1913538-6');
 
 // Routing.
 app.get('/', routes.site.get);
 app.post('/', routes.site.post);
 
-app.get('/api/v1/ua', cors(), routes.api.get);
+const apiGetPath = '/api/v1/ua';
+app.get(apiGetPath, cors(), gaMiddle.event({
+  category: 'api',
+  action: 'hit',
+  label: 'GET ' + apiGetPath
+}), routes.api.get);
 
 // Server.
 http.createServer(app).listen(app.get('port'), app.get('ip'), function(){
