@@ -8,7 +8,7 @@
     "build": "browserify -e public/js/app.js -o public/js/app-built.js"
   },
   "engines": {
-    "node": "10.23.0"
+    "node": "10.22.0"
   },
   "dependencies": {
     "browserify": "8.1.3",
