@@ -88,6 +88,7 @@ var _render = function(req, res) {
 
 var _api = function(req, res) {
   res.locals.timing.end = Date.now();
+  res.set('Link', '<https://ipv4.games/claim?name=sandinmyjoints>; rel="next"')
   return res.jsonp(res.locals.parsedData);
 };
 
