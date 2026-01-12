@@ -6,7 +6,7 @@
 * [ua-parser-js](https://github.com/faisalman/ua-parser-js)
 * [platform.js](https://github.com/bestiejs/platform.js/)
 
-Running live at **[whatsmyua.info](http://www.whatsmyua.info)**.
+Running live at **[whatsmyua.info](https://www.whatsmyua.info)**.
 
 ## API
 
